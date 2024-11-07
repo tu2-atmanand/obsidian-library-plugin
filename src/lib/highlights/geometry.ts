@@ -92,7 +92,6 @@ export class HighlightGeometryLib extends PDFPlusLibSubmodule {
         ];
     }
 
-    // Inspired by PDFViewerChild.prototype.hightlightText from Obsidian's app.js
     computeHighlightRectForItemFromTextLayer(item: TextContentItem, textDiv: HTMLElement, index: number, beginIndex: number, beginOffset: number, endIndex: number, endOffset: number): Rect | null {
         // the bounding box of the whole text content item
         const x1 = item.transform[4];
@@ -102,28 +101,26 @@ export class HighlightGeometryLib extends PDFPlusLibSubmodule {
 
         const range = textDiv.doc.createRange();
 
-        const offsetFrom = index === beginIndex ? beginOffset : 0;
-        const posFrom = getNodeAndOffsetOfTextPos(textDiv, offsetFrom);
-        if (!posFrom) {
-            return null;
+        if (index === beginIndex) {
+            const posFrom = getNodeAndOffsetOfTextPos(textDiv, beginOffset);
+            if (posFrom) {
+                range.setStart(posFrom.node, posFrom.offset);
+            } else {
+                range.setStartBefore(textDiv);
+            }
+        } else {
+            range.setStartBefore(textDiv);
         }
-        range.setStart(posFrom.node, posFrom.offset);
 
         if (index === endIndex) {
             const posTo = getNodeAndOffsetOfTextPos(textDiv, endOffset);
             if (posTo) {
                 range.setEnd(posTo.node, posTo.offset);
             } else {
-                if (textDiv.lastChild) {
-                    range.setEndAfter(textDiv.lastChild);
-                } else {
-                    return null;
-                }
+                range.setEndAfter(textDiv);
             }
-        } else if (textDiv.lastChild) {
-            range.setEndAfter(textDiv.lastChild);
         } else {
-            return null;
+            range.setEndAfter(textDiv);
         }
 
         const rect = range.getBoundingClientRect();
