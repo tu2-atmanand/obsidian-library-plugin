@@ -76,9 +76,12 @@ export class copyLinkLib extends PDFPlusLibSubmodule {
             page = child.pdfViewer.pdfViewer?.currentPageNumber ?? page;
         }
 
+        const selectionStr = child.getTextSelectionRangeStr(pageEl);
+        if (!selectionStr) return null;
+
         const subpath = paramsToSubpath({
             page,
-            selection: child.getTextSelectionRangeStr(pageEl),
+            selection: selectionStr,
             ...subpathParams
         });
 
