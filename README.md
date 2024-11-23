@@ -1,7 +1,9 @@
-<h1 align="center">Obsidian PDF++</h1>
+<h1 align="center">Library - Plugin for Obsidian</h1>
 <p align="center">
 <img src="https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%238a5cf5&label=downloads&query=%24%5B%22pdf-plus%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json" alt="Obsidian Downloads">
 </p>
+
+> Forked from [PDF++](https://github.com/RyotaUshio/obsidian-pdf-plus) by [RyotaUshio](RyotaUshio).
 
 > [!note]
 > All contribution to this plugin has been made by a single voluntary student (me).
@@ -42,17 +44,17 @@ PDF++ stands out among other PDF annotation tools for the following reasons:
 Here I'm just scratching the surface of what PDF++ can do. See [below](#features) and the plugin settings in Obsidian for more details.
 Also note that each feature can be toggled on and off in the plugin settings, which lets you customize this plugin to best fit into your use case.
 
+> [!note]
+> The original Develper included many high quality videos, in this readme, which I have removed for this fork. Please do not put them directly here, use GIF instead or create a different Docs site and put them there instead. It consumes a lot of data while loading this Repository because of this one Readme, since it downloads all those videos, waste of data.
+
 ### Link to PDF files to annotate them with highlights
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/0a9c267d-b74a-4568-821b-a659e29fdac0
 
 ### Color palette for easily copying links & specifying highlight colors
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/72072345-3537-42e7-ad06-5e4a166f83f4
 
 ### Copy links quickly via a hotkey
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/8ef3bc62-70d7-449a-b6a7-0370a2b4a8d8
 
 ### Seamless integration with other community plugins
 
@@ -60,8 +62,6 @@ https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/8ef3bc62-70d7-44
 
 It's also friendly to laptops with small display sizes.
 See [here](https://github.com/RyotaUshio/obsidian-pdf-plus/wiki/Tips:-My-display-is-too-small!#blazingly-fast--smooth-workflow-with-hover-editor) for the details.
-
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/cb292049-bd89-4cd1-9d72-a02828d765e0
 
 #### Transform the [backlinks pane](https://help.obsidian.md/Plugins/Backlinks) into [ZotLit](https://zotlit.aidenlx.top/)-like annotation view with [Better Search Views](https://github.com/ivan-lednev/better-search-views) & PDF++ callouts
 
@@ -71,13 +71,10 @@ See [here](https://github.com/RyotaUshio/obsidian-pdf-plus/wiki/Tips:-backlinks-
 
 ### Highly customizable copy formats
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/fb624769-4cc3-4d4e-9898-b17d0a5591e3
-
 ### Rectangular selection embeds
 
 [Learn more](https://ryotaushio.github.io/obsidian-pdf-plus/embedding-rectangular-selections.html)
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/7a6331ab-71bf-45d0-a457-7984e487e326
 
 ### `Ctrl`/`Cmd`+hover over highlights to preview or open backlinks
 
@@ -85,21 +82,15 @@ Depends on the `Action when hovering over highlighted text` setting.
 
 #### Preview
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/ea14d06a-70f6-45cf-a142-0213adb9749b
-
 #### Open
-
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/5f3dded8-79ad-44cc-816f-dc697dc4a343
 
 ### Filter [backlinks](https://help.obsidian.md/Plugins/Backlinks) by page
 
 Show only backlinks to the page that is currently opened in the PDF viewer.
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/4147e634-7864-40b4-b916-a6db40b85f31
 
 ### "Hover sync" between PDF viewer & backlinks pane
 
-https://github.com/RyotaUshio/obsidian-pdf-plus/assets/72342591/2285a837-0588-4a72-8193-da25a456bf84
 
 ## Features
 
