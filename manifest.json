@@ -1,15 +1,16 @@
 {
-    "id": "pdf-plus",
-    "name": "PDF++",
-    "version": "0.40.13",
-    "minAppVersion": "1.5.8",
-    "description": "The most Obsidian-native PDF annotation tool ever.",
-    "author": "Ryota Ushio",
-    "authorUrl": "https://github.com/RyotaUshio",
-    "fundingUrl": {
-        "GitHub Sponsor": "https://github.com/sponsors/RyotaUshio",
-        "Buy Me a Coffee": "https://www.buymeacoffee.com/ryotaushio",
-        "Ko-fi": "https://ko-fi.com/ryotaushio"
-    },
-    "isDesktopOnly": false
+	"id": "obsidian-library-plugin",
+	"name": "Library",
+	"version": "0.40.13",
+	"minAppVersion": "1.5.8",
+	"description": "A library management system for your books, articles and audiobooks.",
+	"author": "Atmanand Gauns",
+	"authorUrl": "https://github.com/tu2-atmanand",
+	"fundingUrl": {
+		"Buy Me a Coffee": "https://buymeacoffee.com/tu2_atmanand",
+		"GitHub Sponsor": "https://github.com/sponsors/tu2-atmanand",
+		"Paypal": "https://paypal.me/tu2atmanand",
+		"ko-fi": "https://ko-fi.com/atmanandgauns"
+	},
+	"isDesktopOnly": false
 }

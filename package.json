@@ -1,27 +1,27 @@
 {
-    "name": "obsidian-pdf-plus",
-    "version": "0.40.13",
-    "description": "The most Obsidian-native PDF annotation tool ever.",
-    "scripts": {
-        "dev": "node esbuild.config.mjs",
-        "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-        "version": "node version-bump.mjs && git add manifest.json versions.json"
-    },
-    "keywords": [],
-    "author": "Ryota Ushio",
-    "license": "MIT",
-    "devDependencies": {
-        "@cantoo/pdf-lib": "^1.21.1",
-        "@types/node": "^16.18.108",
-        "@typescript-eslint/eslint-plugin": "5.29.0",
-        "@typescript-eslint/parser": "5.29.0",
-        "builtin-modules": "3.3.0",
-        "electron": "^28.3.3",
-        "esbuild": "0.17.3",
-        "monkey-around": "^3.0.0",
-        "obsidian": "^1.7.2",
-        "pdfjs-dist": "^4.6.82",
-        "tslib": "2.4.0",
-        "typescript": "4.7.4"
-    }
+	"name": "obsidian-library-plugin",
+	"version": "0.40.13",
+	"description": "A library management system for your books, articles and audiobooks.",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	},
+	"keywords": [],
+	"author": "Atmanand Gauns",
+	"license": "MIT",
+	"devDependencies": {
+		"@cantoo/pdf-lib": "^1.21.1",
+		"@types/node": "^16.18.108",
+		"@typescript-eslint/eslint-plugin": "5.29.0",
+		"@typescript-eslint/parser": "5.29.0",
+		"builtin-modules": "3.3.0",
+		"electron": "^28.3.3",
+		"esbuild": "0.17.3",
+		"monkey-around": "^3.0.0",
+		"obsidian": "^1.7.2",
+		"pdfjs-dist": "^4.6.82",
+		"tslib": "2.4.0",
+		"typescript": "4.7.4"
+	}
 }
