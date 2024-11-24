@@ -9,7 +9,7 @@ This project is to create a plugin to have an in-built library management system
 - [Built-in Library for PDF en epub workflow (read, highlight, annotate, extract highlights & annotations to a note, synchronized)](https://forum.obsidian.md/t/built-in-library-for-pdf-en-epub-workflow-read-highlight-annotate-extract-highlights-annotations-to-a-note-synchronized/92206?u=tu2_atmanand)
 
 
-I forked the PDF++ project to give a head start for this plugin, since the plugin has the best features in terms of Annotations, highlighting and taking notes from PDF. And also because the project license supports free use, modification and publishing of the software. Read more about all the features from the [PDF++ Readme](https://github.com/RyotaUshio/obsidian-pdf-plus). 
+I forked the PDF++ project to give a head start for this plugin, since the PDF++ plugin has the best features in terms of Annotations, highlighting and taking notes from PDF. And also because the project license supports free use, modification and publishing of the software. Read more about all the features from the [PDF++ Readme](https://github.com/RyotaUshio/obsidian-pdf-plus). 
 
 ## Roadmap for the plugin development
 
