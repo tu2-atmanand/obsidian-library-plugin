@@ -16,6 +16,8 @@
 		"@typescript-eslint/eslint-plugin": "5.29.0",
 		"@typescript-eslint/parser": "5.29.0",
 		"builtin-modules": "3.3.0",
+		"@types/react": "^18.3.4",
+		"@types/react-dom": "^18.3.0",
 		"electron": "^28.3.3",
 		"esbuild": "0.17.3",
 		"monkey-around": "^3.0.0",
@@ -23,5 +25,9 @@
 		"pdfjs-dist": "^4.6.82",
 		"tslib": "2.4.0",
 		"typescript": "4.7.4"
+	},
+	"dependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
 	}
 }
