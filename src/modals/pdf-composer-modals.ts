@@ -1,7 +1,7 @@
 import { Setting, TFile } from 'obsidian';
 import { PDFDocument, PageSizes } from '@cantoo/pdf-lib';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusModal } from 'modals';
 
 
@@ -96,7 +96,7 @@ export class PDFComposerModal extends PDFPlusModal {
     askInPlace: boolean;
     defaultInPlace: boolean;
 
-    constructor(plugin: PDFPlus, askPageLabelUpdateMethod: boolean, defaultMethod: PageLabelUpdateMethod, askInPlace: boolean, defaultInPlace: boolean) {
+    constructor(plugin: LibraryPlugin, askPageLabelUpdateMethod: boolean, defaultMethod: PageLabelUpdateMethod, askInPlace: boolean, defaultInPlace: boolean) {
         super(plugin);
 
         this.askPageLabelUpdateMethod = askPageLabelUpdateMethod;

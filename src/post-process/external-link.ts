@@ -1,6 +1,6 @@
 import { HoverParent, HoverPopover } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from 'lib/component';
 import { AnnotationElement, PDFViewerChild } from 'typings';
 
@@ -11,7 +11,7 @@ export class PDFExternalLinkPostProcessor extends PDFPlusComponent implements Ho
 
     static HOVER_LINK_SOURCE_ID = 'pdf-plus-external-link'; 
 
-    constructor(plugin: PDFPlus, child: PDFViewerChild, annot: AnnotationElement) {
+    constructor(plugin: LibraryPlugin, child: PDFViewerChild, annot: AnnotationElement) {
         super(plugin);
         this.child = child;
         this.annot = annot;
@@ -46,7 +46,7 @@ export class PDFExternalLinkPostProcessor extends PDFPlusComponent implements Ho
         }
     }
 
-    static registerEvents(plugin: PDFPlus, child: PDFViewerChild, annot: AnnotationElement) {
+    static registerEvents(plugin: LibraryPlugin, child: PDFViewerChild, annot: AnnotationElement) {
         if (annot.data.subtype === 'Link' && annot.data.url) {
             return child.component?.addChild(new PDFExternalLinkPostProcessor(plugin, child, annot));
         }

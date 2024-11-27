@@ -1,12 +1,11 @@
 import { Menu, Platform, setIcon, setTooltip } from 'obsidian';
-
-import PDFPlus from 'main';
-import { PDFPlusComponent } from 'lib/component';
-import { ColorPalette } from 'color-palette';
 import { PDFToolbar, PDFViewerChild } from 'typings';
-import { showChildElOnParentElHover, showMenuUnderParentEl } from 'utils';
 import { ScrollMode, SpreadMode } from 'pdfjs-enums';
+import { showChildElOnParentElHover, showMenuUnderParentEl } from 'utils';
 
+import { ColorPalette } from 'color-palette';
+import LibraryPlugin from 'main';
+import { PDFPlusComponent } from 'lib/component';
 
 export class PDFPlusToolbar extends PDFPlusComponent {
     static elInstanceMap = new Map<HTMLElement, PDFPlusToolbar>();
@@ -14,7 +13,7 @@ export class PDFPlusToolbar extends PDFPlusComponent {
     toolbar: PDFToolbar;
     child: PDFViewerChild;
 
-    constructor(plugin: PDFPlus, toolbar: PDFToolbar, child: PDFViewerChild) {
+    constructor(plugin: LibraryPlugin, toolbar: PDFToolbar, child: PDFViewerChild) {
         super(plugin);
         this.toolbar = toolbar;
         this.child = child;

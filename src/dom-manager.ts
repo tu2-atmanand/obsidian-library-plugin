@@ -1,16 +1,15 @@
 import { MarkdownRenderChild, RGB } from 'obsidian';
+import { hexToRgb, isHexString, rgbStringToObject } from 'utils';
 
-import PDFPlus from 'main';
 import { ColorPalette } from 'color-palette';
 import { DEFAULT_BACKLINK_HOVER_COLOR } from 'settings';
-import { hexToRgb, isHexString, rgbStringToObject } from 'utils';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from 'lib/component';
-
 
 export class DomManager extends PDFPlusComponent {
 	styleEl: HTMLStyleElement;
 
-	constructor(plugin: PDFPlus) {
+	constructor(plugin: LibraryPlugin) {
 		super(plugin);
 		this.styleEl = plugin.registerEl(createEl('style', { attr: { id: 'pdf-plus-style' } }));
 		document.head.append(this.styleEl);

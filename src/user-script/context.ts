@@ -1,6 +1,6 @@
 import * as obsidian from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from 'lib/component';
 import { PDFViewerChild } from 'typings';
 import { evalInContext, paramsToSubpath } from 'utils';
@@ -9,7 +9,7 @@ import { evalInContext, paramsToSubpath } from 'utils';
 export class UserScriptContext extends PDFPlusComponent {
     child: PDFViewerChild;
 
-    constructor(plugin: PDFPlus, child: PDFViewerChild) {
+    constructor(plugin: LibraryPlugin, child: PDFViewerChild) {
         super(plugin);
         this.child = child;
     }

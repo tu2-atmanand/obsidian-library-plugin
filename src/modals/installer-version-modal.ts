@@ -1,12 +1,12 @@
 import { ButtonComponent } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusModal } from './base-modal';
 import { getInstallerVersion, isVersionOlderThan } from 'utils';
 
 
 export class InstallerVersionModal extends PDFPlusModal {
-    static openIfNecessary(plugin: PDFPlus) {
+    static openIfNecessary(plugin: LibraryPlugin) {
         const installerVersion = getInstallerVersion();
         if (installerVersion && isVersionOlderThan(installerVersion, plugin.manifest.minAppVersion)) {
             new InstallerVersionModal(plugin).open();

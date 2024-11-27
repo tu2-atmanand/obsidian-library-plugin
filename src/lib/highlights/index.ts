@@ -1,4 +1,4 @@
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { HighlightGeometryLib } from './geometry';
 import { ViewerHighlightLib } from './viewer';
 import { PDFPlusLibSubmodule } from '../submodule';
@@ -12,7 +12,7 @@ export class HighlightLib extends PDFPlusLibSubmodule {
     writeFile: AnnotationWriteFileLib;
     extract: HighlightExtractor;
 
-    constructor(public plugin: PDFPlus) {
+    constructor(public plugin: LibraryPlugin) {
         super(plugin);
         this.geometry = new HighlightGeometryLib(plugin);
         this.viewer = new ViewerHighlightLib(plugin);

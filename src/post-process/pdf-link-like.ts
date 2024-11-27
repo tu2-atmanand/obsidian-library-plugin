@@ -1,6 +1,6 @@
 import { App, HoverParent, HoverPopover, Keymap } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusLib } from 'lib';
 import { AnnotationElement, PDFOutlineTreeNode, PDFViewerChild, PDFJsDestArray } from 'typings';
 import { isCitationId, isMouseEventExternal, isTargetHTMLElement } from 'utils';
@@ -19,7 +19,7 @@ import { BibliographyManager } from 'bib';
  */
 abstract class PDFLinkLikePostProcessor implements HoverParent {
     app: App;
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
     lib: PDFPlusLib;
     child: PDFViewerChild;
     targetEl: HTMLElement;
@@ -51,7 +51,7 @@ abstract class PDFLinkLikePostProcessor implements HoverParent {
         // (e.g. add a class or a data attribute to the popover's hover element)
     }
 
-    protected constructor(plugin: PDFPlus, child: PDFViewerChild, targetEl: HTMLElement) {
+    protected constructor(plugin: LibraryPlugin, child: PDFViewerChild, targetEl: HTMLElement) {
         this.plugin = plugin;
         this.app = plugin.app;
         this.lib = plugin.lib;
@@ -198,12 +198,12 @@ export class PDFInternalLinkPostProcessor extends PDFDestinationHolderPostProces
 
     static readonly HOVER_LINK_SOURCE_ID = 'pdf-plus-internal-link';
 
-    protected constructor(plugin: PDFPlus, child: PDFViewerChild, linkAnnotationElement: AnnotationElement) {
+    protected constructor(plugin: LibraryPlugin, child: PDFViewerChild, linkAnnotationElement: AnnotationElement) {
         super(plugin, child, linkAnnotationElement.container);
         this.linkAnnotationElement = linkAnnotationElement;
     }
 
-    static registerEvents(plugin: PDFPlus, child: PDFViewerChild, linkAnnotationElement: AnnotationElement) {
+    static registerEvents(plugin: LibraryPlugin, child: PDFViewerChild, linkAnnotationElement: AnnotationElement) {
         if (linkAnnotationElement.data.subtype === 'Link') {
             return new PDFInternalLinkPostProcessor(plugin, child, linkAnnotationElement);
         }
@@ -274,12 +274,12 @@ export class PDFOutlineItemPostProcessor extends PDFDestinationHolderPostProcess
 
     static readonly HOVER_LINK_SOURCE_ID = 'pdf-plus-outline';
 
-    protected constructor(plugin: PDFPlus, child: PDFViewerChild, item: PDFOutlineTreeNode) {
+    protected constructor(plugin: LibraryPlugin, child: PDFViewerChild, item: PDFOutlineTreeNode) {
         super(plugin, child, item.selfEl);
         this.item = item;
     }
 
-    static registerEvents(plugin: PDFPlus, child: PDFViewerChild, item: PDFOutlineTreeNode) {
+    static registerEvents(plugin: LibraryPlugin, child: PDFViewerChild, item: PDFOutlineTreeNode) {
         return new PDFOutlineItemPostProcessor(plugin, child, item);
     }
 
@@ -305,7 +305,7 @@ export class PDFOutlineItemPostProcessor extends PDFDestinationHolderPostProcess
 export class PDFThumbnailItemPostProcessor extends PDFLinkLikePostProcessor {
     static readonly HOVER_LINK_SOURCE_ID = 'pdf-plus-thumbnail';
 
-    static registerEvents(plugin: PDFPlus, child: PDFViewerChild) {
+    static registerEvents(plugin: LibraryPlugin, child: PDFViewerChild) {
         return new PDFThumbnailItemPostProcessor(plugin, child, child.pdfViewer.pdfThumbnailViewer.container);
     }
 

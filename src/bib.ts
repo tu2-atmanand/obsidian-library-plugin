@@ -1,7 +1,7 @@
 import { ButtonComponent, HoverPopover, HoverParent, Platform, FileSystemAdapter, Notice, ExtraButtonComponent, Events } from 'obsidian';
 import { PDFDocumentProxy } from 'pdfjs-dist';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from 'lib/component';
 import { genId, isCanvas, isEmbed, isHoverPopover, isNonEmbedLike, onModKeyPress, toSingleLine } from 'utils';
 import { PDFViewerChild, PDFJsDestArray, TextContentItem } from 'typings';
@@ -28,7 +28,7 @@ export class BibliographyManager extends PDFPlusComponent {
     events: Events;
     initialized: boolean;
 
-    constructor(plugin: PDFPlus, child: PDFViewerChild) {
+    constructor(plugin: LibraryPlugin, child: PDFViewerChild) {
         super(plugin);
         this.child = child;
         this.destIdToBibText = new Map();

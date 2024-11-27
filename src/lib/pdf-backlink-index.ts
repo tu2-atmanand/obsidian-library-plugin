@@ -1,6 +1,6 @@
 import { RGB, TFile, parseLinktext, getLinkpath, CachedMetadata, FrontmatterLinkCache, EmbedCache, LinkCache, Events, EventRef } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from './component';
 import { MultiValuedMap } from 'utils';
 
@@ -14,7 +14,7 @@ export class PDFBacklinkIndex extends PDFPlusComponent {
     sourcePaths: MultiValuedMap<string, PDFBacklinkCache>;
     backlinks: Set<PDFBacklinkCache>;
 
-    constructor(plugin: PDFPlus, file: TFile) {
+    constructor(plugin: LibraryPlugin, file: TFile) {
         super(plugin);
         this.file = file;
         this.events = new Events();

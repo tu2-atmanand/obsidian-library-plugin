@@ -1,5 +1,5 @@
 import { PDFOutlineItem, PDFOutlines } from 'lib/outlines';
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusModal } from 'modals';
 import { Setting, FuzzySuggestModal } from 'obsidian';
 
@@ -16,7 +16,7 @@ export class PDFOutlineTitleModal extends PDFPlusModal {
 
     title: string | null = null; // the title of an outline item
 
-    constructor(plugin: PDFPlus, modalTitle: string) {
+    constructor(plugin: LibraryPlugin, modalTitle: string) {
         super(plugin);
         this.modalTitle = modalTitle;
 
@@ -96,7 +96,7 @@ export class PDFOutlineTitleModal extends PDFPlusModal {
 
 
 export class PDFOutlineMoveModal extends FuzzySuggestModal<PDFOutlineItem> {
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
     outlines: PDFOutlines;
     items: PDFOutlineItem[];
     next: ((item: PDFOutlineItem) => any)[] = [];

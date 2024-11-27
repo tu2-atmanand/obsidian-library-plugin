@@ -1,12 +1,12 @@
 import { App, FileView, getLinkpath, TFile } from 'obsidian';
 import * as obsidian from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusLib } from 'lib';
 
 
 export class TemplateProcessor {
-    constructor(public plugin: PDFPlus, public variables: Record<string, any>) { }
+    constructor(public plugin: LibraryPlugin, public variables: Record<string, any>) { }
 
     setVariable(name: string, value: any) {
         this.variables[name] = value;
@@ -30,7 +30,7 @@ export class PDFPlusTemplateProcessor extends TemplateProcessor {
     app: App;
     lib: PDFPlusLib;
 
-    constructor(plugin: PDFPlus, variables: {
+    constructor(plugin: LibraryPlugin, variables: {
         file: TFile,
         page: number,
         pageLabel: string,

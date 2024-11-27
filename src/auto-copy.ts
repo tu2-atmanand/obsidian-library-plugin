@@ -1,13 +1,11 @@
+import LibraryPlugin from 'main';
 import { Menu } from 'obsidian';
-
-import PDFPlus from 'main';
 import { PDFPlusComponent } from 'lib/component';
-
 
 export class AutoCopyMode extends PDFPlusComponent {
     iconEl: HTMLElement | null;
 
-    constructor(plugin: PDFPlus) {
+    constructor(plugin: LibraryPlugin) {
         super(plugin);
         if (this.settings.autoCopyToggleRibbonIcon) {
             let menuShown = false;

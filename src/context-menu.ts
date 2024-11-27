@@ -1,6 +1,6 @@
 import { Menu, MenuItem, Notice, Platform, TFile } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFOutlineItem, PDFOutlines } from 'lib/outlines';
 import { PDFOutlineMoveModal, PDFOutlineTitleModal, PDFComposerModal, PDFAnnotationDeleteModal, PDFAnnotationEditModal } from 'modals';
 import { PDFOutlineTreeNode, PDFViewerChild } from 'typings';
@@ -12,7 +12,7 @@ import { ColorPalette } from 'color-palette';
 import { PDFPlusComponent } from 'lib/component';
 
 
-export const onContextMenu = async (plugin: PDFPlus, child: PDFViewerChild, evt: MouseEvent): Promise<void> => {
+export const onContextMenu = async (plugin: LibraryPlugin, child: PDFViewerChild, evt: MouseEvent): Promise<void> => {
     if (!child.palette) return;
 
     // take from app.js
@@ -41,7 +41,7 @@ export const onContextMenu = async (plugin: PDFPlus, child: PDFViewerChild, evt:
     }
 };
 
-export async function showContextMenu(plugin: PDFPlus, child: PDFViewerChild, evt: MouseEvent) {
+export async function showContextMenu(plugin: LibraryPlugin, child: PDFViewerChild, evt: MouseEvent) {
     const menu = await PDFPlusContextMenu.fromMouseEvent(plugin, child, evt);
 
     child.clearEphemeralUI();
@@ -49,7 +49,7 @@ export async function showContextMenu(plugin: PDFPlus, child: PDFViewerChild, ev
     if (child.pdfViewer.isEmbed) evt.preventDefault();
 }
 
-export async function showContextMenuAtSelection(plugin: PDFPlus, child: PDFViewerChild, selection: Selection) {
+export async function showContextMenuAtSelection(plugin: LibraryPlugin, child: PDFViewerChild, selection: Selection) {
     if (!selection || !selection.focusNode || selection.isCollapsed) {
         return;
     }
@@ -71,7 +71,7 @@ export async function showContextMenuAtSelection(plugin: PDFPlus, child: PDFView
     menu.showAtPosition({ x, y }, doc);
 }
 
-export const onThumbnailContextMenu = (plugin: PDFPlus, child: PDFViewerChild, evt: MouseEvent): void => {
+export const onThumbnailContextMenu = (plugin: LibraryPlugin, child: PDFViewerChild, evt: MouseEvent): void => {
     const { lib } = plugin;
 
     const node = evt.targetNode;
@@ -174,7 +174,7 @@ export const onThumbnailContextMenu = (plugin: PDFPlus, child: PDFViewerChild, e
 };
 
 // TODO: split into smaller methods
-export const onOutlineItemContextMenu = (plugin: PDFPlus, child: PDFViewerChild, file: TFile, item: PDFOutlineTreeNode, evt: MouseEvent) => {
+export const onOutlineItemContextMenu = (plugin: LibraryPlugin, child: PDFViewerChild, file: TFile, item: PDFOutlineTreeNode, evt: MouseEvent) => {
     const { app, lib } = plugin;
 
     if (child.pdfViewer.isEmbed) evt.preventDefault();
@@ -378,7 +378,7 @@ export const onOutlineItemContextMenu = (plugin: PDFPlus, child: PDFViewerChild,
 };
 
 
-export const onOutlineContextMenu = (plugin: PDFPlus, child: PDFViewerChild, file: TFile, evt: MouseEvent) => {
+export const onOutlineContextMenu = (plugin: LibraryPlugin, child: PDFViewerChild, file: TFile, evt: MouseEvent) => {
     const { lib } = plugin;
 
     if (lib.isEditable(child)) {
@@ -414,9 +414,9 @@ export const onOutlineContextMenu = (plugin: PDFPlus, child: PDFViewerChild, fil
 
 
 export class PDFPlusMenu extends Menu {
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
 
-    constructor(plugin: PDFPlus) {
+    constructor(plugin: LibraryPlugin) {
         super();
         this.plugin = plugin;
     }
@@ -437,7 +437,7 @@ export class PDFPlusMenu extends Menu {
 export class PDFPlusContextMenu extends PDFPlusMenu {
     child: PDFViewerChild;
 
-    constructor(plugin: PDFPlus, child: PDFViewerChild) {
+    constructor(plugin: LibraryPlugin, child: PDFViewerChild) {
         super(plugin);
         this.child = child;
         this.setUseNativeMenu(false);
@@ -448,7 +448,7 @@ export class PDFPlusContextMenu extends PDFPlusMenu {
         }
     }
 
-    static async fromMouseEvent(plugin: PDFPlus, child: PDFViewerChild, evt: MouseEvent) {
+    static async fromMouseEvent(plugin: LibraryPlugin, child: PDFViewerChild, evt: MouseEvent) {
         const menu = new PDFPlusContextMenu(plugin, child);
         await menu.addItems(evt);
         return menu;

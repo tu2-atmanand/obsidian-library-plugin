@@ -1,11 +1,11 @@
 import { MarkdownView, Platform } from 'obsidian';
 import { around } from 'monkey-around';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { ClipboardManager, DropEffect } from 'typings';
 
 
-export const patchClipboardManager = (plugin: PDFPlus) => {
+export const patchClipboardManager = (plugin: LibraryPlugin) => {
     const app = plugin.app;
 
     let clipboardManager: ClipboardManager | undefined;

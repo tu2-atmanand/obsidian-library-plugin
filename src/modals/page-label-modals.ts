@@ -7,7 +7,7 @@ import { setTooltip } from 'obsidian';
 import { IconName, MarkdownRenderer, Notice, Setting, TFile, setIcon } from 'obsidian';
 import { PDFDocument } from '@cantoo/pdf-lib';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusModal } from 'modals';
 import { PAGE_LABEL_NUMBERING_STYLES, PDFPageLabelDict, PDFPageLabels, isPageLabelNumberingStyle } from 'lib/page-labels';
 import { getModifierNameInPlatform } from 'utils';
@@ -19,7 +19,7 @@ abstract class PDFPageLabelModal extends PDFPlusModal {
     pageLabels: PDFPageLabels | null;
     docLoadingPromise: Promise<{ doc: PDFDocument, pageLabels: PDFPageLabels | null }>;
 
-    constructor(plugin: PDFPlus, public file: TFile) {
+    constructor(plugin: LibraryPlugin, public file: TFile) {
         super(plugin);
         this.containerEl.addClass('pdf-plus-page-label-modal');
         this.controlEl = this.contentEl.createDiv();

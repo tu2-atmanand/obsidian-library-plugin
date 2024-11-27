@@ -2,13 +2,13 @@
 import { SearchMatchPart, SearchMatches, TFile } from 'obsidian';
 import { around } from 'monkey-around';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { BacklinkPanePDFManager } from 'pdf-backlink';
 import { findReferenceCache } from 'utils';
 import { BacklinkView, FileSearchResult, SearchResultDom, SearchResultFileDom } from 'typings';
 
 
-export const patchBacklink = (plugin: PDFPlus): boolean => {
+export const patchBacklink = (plugin: LibraryPlugin): boolean => {
     const { app, lib } = plugin;
 
     // 1. Try to access a BacklinkRenderer instance from a backlinks view

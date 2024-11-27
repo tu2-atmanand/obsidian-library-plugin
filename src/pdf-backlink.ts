@@ -1,6 +1,6 @@
 import { Component, TFile, SectionCache, Reference } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { MutationObservingChild, getSubpathWithoutHash, isMouseEventExternal, isTargetHTMLElement } from 'utils';
 import { BacklinkRenderer, PDFViewerComponent } from 'typings';
 import { PDFBacklinkCache } from 'lib/pdf-backlink-index';
@@ -16,7 +16,7 @@ export class BacklinkPanePDFManager extends PDFPlusComponent {
     pageTracker: BacklinkPanePDFPageTracker;
     isTrackingPage: boolean;
 
-    constructor(plugin: PDFPlus, renderer: BacklinkRenderer, file: TFile) {
+    constructor(plugin: LibraryPlugin, renderer: BacklinkRenderer, file: TFile) {
         super(plugin);
         this.renderer = renderer;
         this.file = file;
@@ -190,7 +190,7 @@ export class BacklinkPanePDFManager extends PDFPlusComponent {
 export class BacklinkPanePDFPageTracker extends PDFPlusComponent {
     matchCountObserver: MutationObservingChild;
 
-    constructor(plugin: PDFPlus, public renderer: BacklinkRenderer, public file: TFile) {
+    constructor(plugin: LibraryPlugin, public renderer: BacklinkRenderer, public file: TFile) {
         super(plugin);
         this.matchCountObserver = new MutationObservingChild(
             this.renderer.backlinkDom.el,

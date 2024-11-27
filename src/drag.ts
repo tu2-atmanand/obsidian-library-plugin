@@ -6,13 +6,13 @@
  */
 import { Notice, TFile } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { isAncestorOf } from 'utils';
 import { PDFOutlineTreeNode, PDFOutlineViewer, PDFViewerChild } from 'typings';
 import { PDFOutlines } from 'lib/outlines';
 
 
-export const registerOutlineDrag = async (plugin: PDFPlus, pdfOutlineViewer: PDFOutlineViewer, child: PDFViewerChild, file: TFile) => {
+export const registerOutlineDrag = async (plugin: LibraryPlugin, pdfOutlineViewer: PDFOutlineViewer, child: PDFViewerChild, file: TFile) => {
     const { app, lib } = plugin;
     const promises: Promise<void>[] = [];
 
@@ -121,7 +121,7 @@ export const registerOutlineDrag = async (plugin: PDFPlus, pdfOutlineViewer: PDF
     }, false);
 };
 
-export const registerThumbnailDrag = (plugin: PDFPlus, child: PDFViewerChild, file: TFile) => {
+export const registerThumbnailDrag = (plugin: LibraryPlugin, child: PDFViewerChild, file: TFile) => {
     const { app, lib } = plugin;
 
     child.pdfViewer.pdfThumbnailViewer.container
@@ -156,7 +156,7 @@ export const registerThumbnailDrag = (plugin: PDFPlus, child: PDFViewerChild, fi
         });
 };
 
-export const registerAnnotationPopupDrag = (plugin: PDFPlus, popupEl: HTMLElement, child: PDFViewerChild, file: TFile, page: number, id: string) => {
+export const registerAnnotationPopupDrag = (plugin: LibraryPlugin, popupEl: HTMLElement, child: PDFViewerChild, file: TFile, page: number, id: string) => {
     const { app, lib } = plugin;
 
     const pageView = child.getPage(page);

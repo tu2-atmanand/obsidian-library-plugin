@@ -1,6 +1,6 @@
 import { App, Component, TFile } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { Embed, EmbedContext, Rect } from 'typings';
 
 
@@ -12,7 +12,7 @@ export class PDFCroppedEmbed extends Component implements Embed {
         return this.plugin.lib;
     }
 
-    constructor(public plugin: PDFPlus, public ctx: EmbedContext, public file: TFile, public subpath: string, public pageNumber: number, public rect: Rect, public width?: number) {
+    constructor(public plugin: LibraryPlugin, public ctx: EmbedContext, public file: TFile, public subpath: string, public pageNumber: number, public rect: Rect, public width?: number) {
         super();
         this.app = ctx.app;
         this.containerEl = ctx.containerEl;

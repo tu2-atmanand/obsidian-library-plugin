@@ -1,12 +1,12 @@
 import { TFile, ViewStateResult } from 'obsidian';
 import { around } from 'monkey-around';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFView } from 'typings';
 import { patchPDFInternals } from './pdf-internals';
 
 
-export const patchPDFView = (plugin: PDFPlus): boolean => {
+export const patchPDFView = (plugin: LibraryPlugin): boolean => {
     if (plugin.patchStatus.pdfView && plugin.patchStatus.pdfInternals) return true;
 
     const lib = plugin.lib;

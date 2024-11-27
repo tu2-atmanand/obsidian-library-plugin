@@ -1,11 +1,11 @@
 import { around } from 'monkey-around';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { onOutlineItemContextMenu } from 'context-menu';
 import { PDFOutlineTreeNode, PDFOutlineViewer } from 'typings';
 
 
-export const patchPDFOutlineViewer = (plugin: PDFPlus, pdfOutlineViewer: PDFOutlineViewer) => {
+export const patchPDFOutlineViewer = (plugin: LibraryPlugin, pdfOutlineViewer: PDFOutlineViewer) => {
     plugin.register(around(pdfOutlineViewer.constructor.prototype, {
         onItemContextMenu(old) {
             return async function (item: PDFOutlineTreeNode, evt: MouseEvent) {

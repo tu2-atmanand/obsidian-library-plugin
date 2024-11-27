@@ -1,6 +1,6 @@
 import { Setting, TFile, TextAreaComponent, MarkdownRenderer, RGB, ColorComponent, DropdownComponent } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { hexToRgb, hookInternalLinkMouseEventHandlers, rgbToHex } from 'utils';
 import { PDFDict } from '@cantoo/pdf-lib';
 import { PDFPlusModal } from 'modals';
@@ -11,7 +11,7 @@ class PDFAnnotationModal extends PDFPlusModal {
     page: number;
     id: string;
 
-    constructor(plugin: PDFPlus, file: TFile, page: number, id: string) {
+    constructor(plugin: LibraryPlugin, file: TFile, page: number, id: string) {
         super(plugin);
         this.file = file;
         this.page = page;

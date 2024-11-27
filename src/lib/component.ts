@@ -1,12 +1,12 @@
 import { Component } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 
 
 export class PDFPlusComponent extends Component {
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
 
-    constructor(plugin: PDFPlus) {
+    constructor(plugin: LibraryPlugin) {
         super();
         this.plugin = plugin;
     }

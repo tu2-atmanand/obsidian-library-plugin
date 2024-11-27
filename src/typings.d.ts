@@ -5,7 +5,7 @@ import { PDFDocumentProxy, PDFPageProxy, PageViewport } from 'pdfjs-dist';
 import { AnnotationStorage } from 'pdfjs-dist/types/src/display/annotation_storage';
 import { PDFName, PDFNumber, PDFRef, PDFNull } from '@cantoo/pdf-lib';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { BacklinkPanePDFManager } from 'pdf-backlink';
 import { PDFViewerBacklinkVisualizer } from 'backlink-visualizer';
 import { ColorPalette } from 'color-palette';
@@ -16,7 +16,7 @@ import { VimBindings } from 'vim/vim';
 
 declare global {
     interface Window {
-        pdfPlus?: PDFPlus;
+        pdfPlus?: LibraryPlugin;
         pdfjsLib: typeof import('pdfjs-dist');
         pdfjsViewer: any;
         electron?: typeof import('electron');

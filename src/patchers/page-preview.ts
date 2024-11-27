@@ -1,10 +1,10 @@
 import { HoverParent, parseLinktext } from 'obsidian';
 import { around } from 'monkey-around';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 
 
-export const patchPagePreview = (plugin: PDFPlus): boolean => {
+export const patchPagePreview = (plugin: LibraryPlugin): boolean => {
     const app = plugin.app;
     const lib = plugin.lib;
     const pagePreviewInstance = app.internalPlugins.plugins['page-preview'].instance;

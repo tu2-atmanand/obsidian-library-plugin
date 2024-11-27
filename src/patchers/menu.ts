@@ -1,10 +1,10 @@
 import { Menu } from 'obsidian';
 import { around } from 'monkey-around';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 
 
-export const patchMenu = (plugin: PDFPlus) => {
+export const patchMenu = (plugin: LibraryPlugin) => {
     plugin.register(around(Menu.prototype, {
         showAtPosition(old) {
             return function (this: Menu, ...args: any[]) {

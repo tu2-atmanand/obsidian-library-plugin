@@ -1,11 +1,11 @@
 import { OpenViewState, PaneType, Workspace, parseLinktext, Platform } from 'obsidian';
 import { around } from 'monkey-around';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { focusObsidian } from 'utils';
 
 
-export const patchWorkspace = (plugin: PDFPlus) => {
+export const patchWorkspace = (plugin: LibraryPlugin) => {
     const app = plugin.app;
     const lib = plugin.lib;
 

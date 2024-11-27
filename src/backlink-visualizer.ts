@@ -1,6 +1,6 @@
 import { HoverParent, HoverPopover, Keymap, TFile, setIcon } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from 'lib/component';
 import { PDFBacklinkCache, PDFBacklinkIndex, PDFPageBacklinkIndex } from 'lib/pdf-backlink-index';
 import { PDFPageView, PDFViewerChild, Rect } from 'typings';
@@ -14,7 +14,7 @@ export class PDFBacklinkVisualizer extends PDFPlusComponent {
     file: TFile;
     _index?: PDFBacklinkIndex;
 
-    constructor(plugin: PDFPlus, file: TFile) {
+    constructor(plugin: LibraryPlugin, file: TFile) {
         super(plugin);
         this.file = file;
     }
@@ -307,12 +307,12 @@ export class PDFViewerBacklinkVisualizer extends PDFBacklinkVisualizer implement
     domManager: BacklinkDomManager;
     rectangleCache: RectangleCache;    
 
-    constructor(plugin: PDFPlus, file: TFile, child: PDFViewerChild) {
+    constructor(plugin: LibraryPlugin, file: TFile, child: PDFViewerChild) {
         super(plugin, file);
         this.child = child;
     }
 
-    static create(plugin: PDFPlus, file: TFile, child: PDFViewerChild) {
+    static create(plugin: LibraryPlugin, file: TFile, child: PDFViewerChild) {
         return plugin.addChild(new PDFViewerBacklinkVisualizer(plugin, file, child));
     }
 

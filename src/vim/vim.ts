@@ -1,4 +1,4 @@
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from 'lib/component';
 import { repeatable } from 'utils';
 import { PDFViewerComponent } from 'typings';
@@ -56,7 +56,7 @@ export class VimBindings extends PDFPlusComponent {
         return this.viewer.containerEl.doc;
     }
 
-    constructor(plugin: PDFPlus, viewer: PDFViewerComponent) {
+    constructor(plugin: LibraryPlugin, viewer: PDFViewerComponent) {
         super(plugin);
 
         this.viewer = viewer;
@@ -172,7 +172,7 @@ export class VimBindings extends PDFPlusComponent {
         });
     }
 
-    static register(plugin: PDFPlus, viewer: PDFViewerComponent) {
+    static register(plugin: LibraryPlugin, viewer: PDFViewerComponent) {
         if (plugin.settings.vim) {
             viewer.vim = plugin.addChild(viewer.addChild(new VimBindings(plugin, viewer)));
         }

@@ -1,15 +1,15 @@
 import { App } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusLib } from 'lib';
 import { PDFPlusSettings } from 'settings';
 
 
 export class PDFPlusLibSubmodule {
     app: App;
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
 
-    constructor(plugin: PDFPlus) {
+    constructor(plugin: LibraryPlugin) {
         this.app = plugin.app;
         this.plugin = plugin;
     }

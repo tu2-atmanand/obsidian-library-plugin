@@ -2,7 +2,7 @@ import { App, Component, EditableFileView, FileView, MarkdownView, Notice, Platf
 import { PDFDocumentProxy, PDFPageProxy } from 'pdfjs-dist';
 import { EncryptedPDFError, PDFArray, PDFDict, PDFDocument, PDFName, PDFNumber, PDFRef } from '@cantoo/pdf-lib';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { ColorPalette, ColorPaletteState } from 'color-palette';
 import { copyLinkLib } from './copy-link';
 import { HighlightLib } from './highlights';
@@ -24,7 +24,7 @@ import { DummyFileManager } from './dummy-file-manager';
 
 export class PDFPlusLib {
     app: App;
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
 
     PDFOutlines = PDFOutlines;
     NameTree = NameTree;
@@ -43,7 +43,7 @@ export class PDFPlusLib {
 
     utils = utils;
 
-    constructor(plugin: PDFPlus) {
+    constructor(plugin: LibraryPlugin) {
         this.app = plugin.app;
         this.plugin = plugin;
 

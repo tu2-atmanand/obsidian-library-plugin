@@ -1,6 +1,6 @@
 import { TFile } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusComponent } from 'lib/component';
 import { areOverlapping, areOverlappingStrictly, binarySearch, getNodeAndOffsetOfTextPos, toPDFCoords } from 'utils';
 import { PDFPageView, PDFViewer, TextContentItem } from 'typings';
@@ -12,7 +12,7 @@ export class PDFDocumentTextStructureParser extends PDFPlusComponent {
     pages: Map<number, PDFPageTextStructureParser> = new Map();
     file: TFile;
 
-    constructor(plugin: PDFPlus, pdfViewer: PDFViewer, file: TFile) {
+    constructor(plugin: LibraryPlugin, pdfViewer: PDFViewer, file: TFile) {
         super(plugin);
         this.pdfViewer = pdfViewer;
         this.file = file;

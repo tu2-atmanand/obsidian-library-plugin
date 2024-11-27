@@ -1,7 +1,7 @@
 
 import { AbstractInputSuggest, App, Command, FuzzyMatch, SearchResultContainer, TFile, TFolder, prepareFuzzySearch, renderResults, sortSearchResults } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusSettingTab } from 'settings';
 
 
@@ -93,7 +93,7 @@ export class FuzzyFolderSuggest extends FuzzyInputSuggest<TFolder> {
 
 
 export class CommandSuggest extends AbstractInputSuggest<Command> {
-	plugin: PDFPlus;
+	plugin: LibraryPlugin;
 	inputEl: HTMLInputElement;
 	tab: PDFPlusSettingTab;
 

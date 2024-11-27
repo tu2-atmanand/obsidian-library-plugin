@@ -1,6 +1,6 @@
 import { Notice, TFile } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PdfLibIO } from './pdf-lib';
 import { PDFPlusLibSubmodule } from 'lib/submodule';
 import { parsePDFSubpath } from 'utils';
@@ -12,7 +12,7 @@ export type TextMarkupAnnotationSubtype = 'Highlight' | 'Underline' | 'Squiggly'
 export class AnnotationWriteFileLib extends PDFPlusLibSubmodule {
     pdflib: PdfLibIO;
 
-    constructor(plugin: PDFPlus) {
+    constructor(plugin: LibraryPlugin) {
         super(plugin);
         this.pdflib = new PdfLibIO(plugin);
     }

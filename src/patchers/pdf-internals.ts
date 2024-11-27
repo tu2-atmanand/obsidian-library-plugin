@@ -2,7 +2,7 @@ import { Component, MarkdownRenderer, Notice, TFile, debounce, setIcon, setToolt
 import { around } from 'monkey-around';
 import { PDFDocumentProxy } from 'pdfjs-dist';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFAnnotationDeleteModal, PDFAnnotationEditModal } from 'modals';
 import { onContextMenu, onOutlineContextMenu, onThumbnailContextMenu, showContextMenu } from 'context-menu';
 import { registerAnnotationPopupDrag, registerOutlineDrag, registerThumbnailDrag } from 'drag';
@@ -17,7 +17,7 @@ import { SidebarView, SpreadMode } from 'pdfjs-enums';
 import { VimBindings } from 'vim/vim';
 
 
-export const patchPDFInternals = async (plugin: PDFPlus, pdfViewerComponent: PDFViewerComponent): Promise<boolean> => {
+export const patchPDFInternals = async (plugin: LibraryPlugin, pdfViewerComponent: PDFViewerComponent): Promise<boolean> => {
     if (plugin.patchStatus.pdfInternals) return true;
 
     return new Promise<boolean>((resolve) => {
@@ -55,7 +55,7 @@ export const patchPDFInternals = async (plugin: PDFPlus, pdfViewerComponent: PDF
     });
 };
 
-function onPDFInternalsPatchSuccess(plugin: PDFPlus) {
+function onPDFInternalsPatchSuccess(plugin: LibraryPlugin) {
     const { lib } = plugin;
     lib.workspace.iteratePDFViewerComponents((viewer, file) => {
         // reflect the patch to existing PDF views
@@ -73,7 +73,7 @@ function onPDFInternalsPatchSuccess(plugin: PDFPlus) {
     });
 }
 
-const patchPDFViewerComponent = (plugin: PDFPlus, pdfViewerComponent: PDFViewerComponent) => {
+const patchPDFViewerComponent = (plugin: LibraryPlugin, pdfViewerComponent: PDFViewerComponent) => {
     plugin.register(around(pdfViewerComponent.constructor.prototype, {
         loadFile(old) {
             return async function (this: PDFViewerComponent, file: TFile, subpath?: string) {
@@ -100,7 +100,7 @@ const patchPDFViewerComponent = (plugin: PDFPlus, pdfViewerComponent: PDFViewerC
     }));
 };
 
-const patchPDFViewerChild = (plugin: PDFPlus, child: PDFViewerChild) => {
+const patchPDFViewerChild = (plugin: LibraryPlugin, child: PDFViewerChild) => {
     const { app, lib } = plugin;
 
     plugin.register(around(child.constructor.prototype, {
@@ -925,7 +925,7 @@ const patchPDFViewerChild = (plugin: PDFPlus, child: PDFViewerChild) => {
 };
 
 /** Monkey-patch ObsidianViewer so that it can open external PDF files. */
-const patchObsidianViewer = (plugin: PDFPlus, pdfViewer: ObsidianViewer) => {
+const patchObsidianViewer = (plugin: LibraryPlugin, pdfViewer: ObsidianViewer) => {
     plugin.register(around(pdfViewer.constructor.prototype, { // equivalent to window.pdfjsViewer.ObsidianViewer
         open(old) {
             return async function (this: ObsidianViewer, args: any) {
@@ -960,7 +960,7 @@ const patchObsidianViewer = (plugin: PDFPlus, pdfViewer: ObsidianViewer) => {
     }));
 };
 
-const patchObsidianServices = (plugin: PDFPlus) => {
+const patchObsidianServices = (plugin: LibraryPlugin) => {
     plugin.register(around(window.pdfjsViewer.ObsidianServices.prototype, {
         createPreferences(old) {
             return function (this: ObsidianServices, ...args: any[]) {

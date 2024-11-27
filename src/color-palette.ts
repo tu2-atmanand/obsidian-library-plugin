@@ -1,10 +1,9 @@
+import { KeysOfType, getEventCoords, isHexString, isTargetHTMLElement, showMenuUnderParentEl } from 'utils';
 import { Menu, Notice, Platform, setIcon, setTooltip } from 'obsidian';
-
-import PDFPlus from 'main';
-import { KeysOfType, getEventCoords, isHexString, showMenuUnderParentEl, isTargetHTMLElement } from 'utils';
 import { PDFViewerChild, Rect } from 'typings';
-import { PDFPlusComponent } from 'lib/component';
 
+import LibraryPlugin from 'main';
+import { PDFPlusComponent } from 'lib/component';
 
 export type ColorPaletteState = Pick<ColorPalette, 'selectedColorName' | 'actionIndex' | 'displayTextFormatIndex' | 'writeFile'>;
 
@@ -34,7 +33,7 @@ export class ColorPalette extends PDFPlusComponent {
     displayTextFormatIndex: number;
     writeFile: boolean;
 
-    constructor(plugin: PDFPlus, child: PDFViewerChild, toolbarLeftEl: HTMLElement) {
+    constructor(plugin: LibraryPlugin, child: PDFViewerChild, toolbarLeftEl: HTMLElement) {
         super(plugin);
         this.child = child;
         this.toolbarLeftEl = toolbarLeftEl;

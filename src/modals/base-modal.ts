@@ -1,15 +1,15 @@
 import { Component, Modal } from 'obsidian';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { PDFPlusLib } from 'lib';
 
 
 export class PDFPlusModal extends Modal {
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
     lib: PDFPlusLib;
     component: Component;
 
-    constructor(plugin: PDFPlus) {
+    constructor(plugin: LibraryPlugin) {
         super(plugin.app);
         this.plugin = plugin;
         this.lib = plugin.lib;

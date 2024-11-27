@@ -1,8 +1,8 @@
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { patchPDFInternals } from 'patchers/pdf-internals';
 
 
-export const patchPDFInternalFromPDFEmbed = (plugin: PDFPlus): boolean => {
+export const patchPDFInternalFromPDFEmbed = (plugin: LibraryPlugin): boolean => {
     if (plugin.patchStatus.pdfInternals) return true;
 
     const { lib } = plugin;

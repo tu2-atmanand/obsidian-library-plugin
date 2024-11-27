@@ -2,27 +2,27 @@ import { getDirectPDFObj } from 'utils';
 import { Notice, TFile } from 'obsidian';
 import { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName, PDFRef, PDFString, PDFNumber, PDFPageLeaf, PDFNull } from '@cantoo/pdf-lib';
 
-import PDFPlus from 'main';
+import LibraryPlugin from 'main';
 import { DestArray, PDFOutlineTreeNode } from 'typings';
 import { PDFNamedDestinations } from './destinations';
 
 
 export class PDFOutlines {
-    plugin: PDFPlus;
+    plugin: LibraryPlugin;
     doc: PDFDocument;
     namedDests: PDFNamedDestinations | null;
 
-    constructor(plugin: PDFPlus, doc: PDFDocument) {
+    constructor(plugin: LibraryPlugin, doc: PDFDocument) {
         this.plugin = plugin;
         this.doc = doc;
         this.namedDests = PDFNamedDestinations.fromDocument(doc);
     }
 
-    static async fromDocument(doc: PDFDocument, plugin: PDFPlus) {
+    static async fromDocument(doc: PDFDocument, plugin: LibraryPlugin) {
         return new PDFOutlines(plugin, doc);
     }
 
-    static async fromFile(file: TFile, plugin: PDFPlus) {
+    static async fromFile(file: TFile, plugin: LibraryPlugin) {
         const { lib } = plugin;
 
         const doc = await lib.loadPdfLibDocument(file);
@@ -30,7 +30,7 @@ export class PDFOutlines {
     }
 
     // TODO
-    // static async fromMarkdownList(markdown: string, plugin: PDFPlus, doc: PDFDocument) {
+    // static async fromMarkdownList(markdown: string, plugin: LibraryPlugin, doc: PDFDocument) {
 
     // }
 
@@ -159,7 +159,7 @@ export class PDFOutlines {
         return found;
     }
 
-    static async processOutlineRoot(process: (root: PDFOutlineItem) => void, file: TFile, plugin: PDFPlus) {
+    static async processOutlineRoot(process: (root: PDFOutlineItem) => void, file: TFile, plugin: LibraryPlugin) {
         const { app } = plugin;
 
         const outlines = await PDFOutlines.fromFile(file, plugin);
@@ -171,7 +171,7 @@ export class PDFOutlines {
         await app.vault.modifyBinary(file, buffer);
     }
 
-    static async findAndProcessOutlineItem(item: PDFOutlineTreeNode, processor: (item: PDFOutlineItem) => void, file: TFile, plugin: PDFPlus) {
+    static async findAndProcessOutlineItem(item: PDFOutlineTreeNode, processor: (item: PDFOutlineItem) => void, file: TFile, plugin: LibraryPlugin) {
         const { app } = plugin;
 
         const outlines = await PDFOutlines.fromFile(file, plugin);
