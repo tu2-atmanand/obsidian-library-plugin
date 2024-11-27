@@ -1,6 +1,6 @@
 name: Feature request
 description: "Suggest an idea to enhance the functionality of Library plugin."
-labels: ["enhancement"]
+labels: ["feature"]
 title: "[FR] "
 body:
   - type: markdown
