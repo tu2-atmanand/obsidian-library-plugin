@@ -23,16 +23,8 @@ export const BooksGallary: React.FC<BooksGallaryProps> = ({
 	useEffect(() => {
 		const fetchFiles = async () => {
 			try {
-				const pathEnteredByUser = "D:/Books_Library/NEW_PendingToRead/Physics/"
-				const normalizedTempPath = normalizePath(pathEnteredByUser);
-				console.log("Here is the normalize path to the folder :", normalizedTempPath);
-				// Lets try to find out how to get files from a folder in the PC
-				
-				
-				
 				// Get all files from the vault
 				const files = plugin.app.vault.getFiles();
-				console.log("Following are all files in the vault :", files);
 
 				// Filter files based on the specified path and extensions
 				const filteredFiles = files.filter(
@@ -40,7 +32,6 @@ export const BooksGallary: React.FC<BooksGallaryProps> = ({
 						file.path.startsWith('0_Attachements') && // This all is temparary, find out how to read files from outside vault.
 						["pdf", "epub", "mp3"].includes(file.extension.toLowerCase())
 				);
-				console.log("Following are the supported file :", filteredFiles);
 
 				setBooks(filteredFiles);
 			} catch (err) {
